@@ -9,7 +9,8 @@
 Secreta is a secret and config manangement module that allows you to smartly manage your app configurations and secrets. 
 It provides a way to secure API keys, External Service Links, Database credentials, app configs and more with Industry-grade encryption denying unauthorized access.
 It provides a permission level which enables each member of the team have access to the exact permission and access to secrets they need to do their work. 
-It eliminates the need to worry about secrets being committed to git repos. All secrets are encrypted with industry-standard encryption algorithm. No one can decrypt without a matching key
+It eliminates the need to worry about secrets being committed to git repos. All secrets are encrypted with industry-standard encryption algorithm. No one can decrypt without a matching key.
+
 100% Free and Open Source!
 
 <!-- ![Kitten Material](https://camo.githubusercontent.com/f0487d92194f3c685213539c53e9784113cd8a4b/68747470733a2f2f692e696d6775722e636f6d2f58384f344748622e706e67) -->
@@ -42,7 +43,7 @@ yarn add secreta
 ```
 
 Initialize Secreta: 
-This will generate a .secreta folder with secreta file where configs and secrets and be safely stored and used in your app
+This will generate a .secreta folder with secreta file where configs and secrets can be safely stored and used in your app
 
 ```bash
 secreta init
