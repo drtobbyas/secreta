@@ -1,5 +1,5 @@
 
-# SECRETA [<img src="https://res.cloudinary.com/drtob/image/upload/v1586612535/xnvxpxpqhcddtwpofj7e.png" alt="Secreta" height="20px" />]
+![secreta logo](https://res.cloudinary.com/drtob/image/upload/v1586612535/xnvxpxpqhcddtwpofj7e.png)
 <!-- [link:eva] [![npm][badge:license]]() [![Build Status][badge:github-actions]][link:github-actions] [![Coverage Status][badge:coveralls]][link:coveralls] -->
 
 
