@@ -19,11 +19,13 @@ It eliminates the need to worry about secrets being committed to git repos. All 
 
 ## What's included
 
+- **One key -** You only need to remember one key to manage all your secrets.
+
 - **Access control to secrets and configs -** with hierarchical permission level.
 
 - **Industry-grade encryption -** to protect against unauthorized access even if configs where released into wrong hands.
 
-- **Predefined configuration template -** Consisting of development (default), staging and production configs.
+- **Predefined environment configuration template -** Consisting of development (default), staging and production configs. More can be added at wish
 
 - **Eleminates worries of unintentional configs commit -** You can now safely commit your configs to gitHub, Bitbucket, Gitlab e.t.c. All configs are encrypted
 
@@ -48,22 +50,30 @@ This will generate a .secreta folder with secreta file where configs and secrets
 ```bash
 secreta init
 ```
+
+Load config: 
+### Config can be loaded either in encrypted or unencrypted state
+
+```js
+import { load } from "secreta";
+
+const config = load({key: 'myonlysecretkey', environment: 'development'});
+
+console.log(config.MYSQL_PASSWORD)
+
+```
+
+### You can encrypt your config prior to pushing to git repo (gitHub, gitLab, Bitbucket, e.t.c)
+### Or even create pre-push hook https://www.npmjs.com/package/pre-push to enhance workflow
+
 Encrypt configs: 
 This encrypts your secrets and configs with Industry-grade encryption algorithm
 
 ```bash
 secreta encrypt
 ```
-Load config: 
 
-```js
-import { load } from "secreta";
-
-const config = load();
-
-console.log(config.MYSQL_PASSWORD)
-
-```
+### You may wish to decrypt your config after encryption
 
 Decrypt configs:
 This decrypts your configs, if for any reason you need to see the plain version
