@@ -1,0 +1,55 @@
+Arguments: 
+  /home/drtob/.nvm/versions/node/v12.16.0/bin/node /home/drtob/.yarn/bin/yarn.js global bin
+
+PATH: 
+  /home/drtob/.yarn/bin:/home/drtob/.config/yarn/global/node_modules/.bin:/home/drtob/.nvm/versions/node/v12.16.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/yarn-[version]/bin:/home/drtob/.yarn/bin:/opt/yarn-[version]/bin
+
+Yarn version: 
+  1.22.0
+
+Node version: 
+  12.16.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /mnt/3888D81875673D62/drtob_drive/programming/projects/secreta/package.json: Unexpected token } in JSON at position 475
+      at JSON.parse (<anonymous>)
+      at /home/drtob/.yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/home/drtob/.yarn/lib/cli.js:310:30)
+      at /home/drtob/.yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "secreta",
+    "version": "1.0.0",
+    "description": "A smarter config and secret management package",
+    "main": "lib/index.js",
+    "bin": {
+      "secreta": "./bin/secreta.js"
+    },
+    "scripts": {
+      "start": "node bin/index.js" 
+    },
+    "keywords": [
+      "config",
+      "secret",
+      "env",
+      "environment"
+    ],
+    "author": "Oluwatobi Adeshina",
+    "license": "MIT",
+    "dependencies": {
+      "commander": "^4.1.1",
+      "fs-extra": "^8.1.0",
+      "inquirer": "^7.0.5",
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
