@@ -1,6 +1,7 @@
 
-<!-- # SECRETA [<img src="https://i.imgur.com/oMcxwZ0.png" alt="Eva Design System" height="20px" />][link:eva] [![npm][badge:license]]() [![Build Status][badge:github-actions]][link:github-actions] [![Coverage Status][badge:coveralls]][link:coveralls] -->
-# SECRETA
+# SECRETA [<img src="https://github.com/drtobbyas/secreta/assets/image/logo.png" alt="Secreta" height="20px" />]
+<!-- [link:eva] [![npm][badge:license]]() [![Build Status][badge:github-actions]][link:github-actions] [![Coverage Status][badge:coveralls]][link:coveralls] -->
+
 
 **SECRETA** – ***A secret is a secret if and only if it is kept secret***
 
