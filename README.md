@@ -2,6 +2,7 @@
 ![secreta logo](https://res.cloudinary.com/drtob/image/upload/v1586612535/xnvxpxpqhcddtwpofj7e.png)
 <!-- [link:eva] [![npm][badge:license]]() [![Build Status][badge:github-actions]][link:github-actions] [![Coverage Status][badge:coveralls]][link:coveralls] -->
 
+> **SECRETA** - A smarter secret and config manangement package
 
 **SECRETA** – ***A secret is a secret if and only if it is kept secret***
 
@@ -13,10 +14,6 @@ It provides a permission level which enables each member of the team have access
 It eliminates the need to worry about secrets being committed to git repos. All secrets are encrypted with industry-standard encryption algorithm. No one can decrypt without a matching key.
 
 100% Free and Open Source!
-
-<!-- ![Kitten Material](https://camo.githubusercontent.com/f0487d92194f3c685213539c53e9784113cd8a4b/68747470733a2f2f692e696d6775722e636f6d2f58384f344748622e706e67) -->
-
-<!-- [<img src="https://i.imgur.com/pYl0trU.jpg">][link:doc-homepage] -->
 
 ## What's included
 
@@ -31,6 +28,24 @@ It eliminates the need to worry about secrets being committed to git repos. All 
 - **Eleminates worries of unintentional configs commit -** You can now safely commit your configs to gitHub, Bitbucket, Gitlab e.t.c. All configs are encrypted
 
 - **Configs are inherited -** No need to re-declare properties for every environment, just a subtle overwrite. You are done!
+
+
+# Motivation
+Keeping organized and remembering app configs especially when you have loads of secrets to manage, database configs (host, username, and passwords), app ID, external API keys and variable enviroment configuration is really daunting. And more importantly being able to define enviroment variables in a single file and load at runtime any given enviroment configuration seems to be a luxury.
+Also, exposing your whole system configs to third party, adhoc staff and one-time freelancers is not something you want for your organization.
+
+Having the ability to manage all your secrets, database configs, API keys and more with just `ONE KEY` is not bad (~ if not splendid ~). Also being able to optionally secure your secrets with industry-grade encryption when your feel you need more protection while working with third-parties is plus. Above all, have the ease of switching and testing all your enviroments (development, staging, production) variables from a single point.
+
+## What makes  `secreta` different from other config manangement modules'
+### secreta vs dotenv
+| features | dotenv                 | secreta                                                                                                          |
+| ---- | --------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Dynamic Loading  |  Does not support dynamic environment variables loading.                    | Support dynamic environment variables loading                                                                                            |
+| DataTypes  | .env file only natively support string. Does not support boolean or number values without additionally overhead            | Full support for all DataTypes includes Array, boolean, number e.t.c. Support all DataTypes that can be stored with json                                                                                    |
+| File  | .env file          | .json file                                                                                              |
+| Encryption  | Does not provide encryption. Relies on ignnoring .env file to git commit to prevent accidental config commit             | Provides industry-grade encryption to encrypt configs. No worries if config is committed to git (as long as it is encrypted, no one can see your secrets)                                                                                |
+| Duplication  | Requires you to define separate environment variables for each environment  | Configs can be the inhereted. No need for duplication. General configs can be set in development (default) environment and other enviroments can overwrite and add more environment-specific variables|
+
 
 ## Quick Start
 
@@ -52,13 +67,15 @@ This will generate a .secreta folder with secreta file where configs and secrets
 secreta init
 ```
 
+Define your configs: 
+### Open `<project-root>/.secreta/secreta.json` and define your configs. 
+### set your key and environment in `<project-root>/.secreta/config.js' file. Boom! All done.
+
 Load config: 
 ### Config can be loaded either in encrypted or unencrypted state
 
 ```js
-import { load } from "secreta";
-
-const config = load({key: 'myonlysecretkey', environment: 'development'});
+import { config }  from "secreta";
 
 console.log(config.MYSQL_PASSWORD)
 
@@ -83,6 +100,30 @@ This decrypts your configs, if for any reason you need to see the plain version
 secreta decrypt
 ```
 
+Configuring environment: 
+### Config can be loaded based on environment (development, staging, production or any other you defined in secreta.json)
+### open `<project-root>/.secreta/config.js' file and make variable reference to `key` and `environment` properties.
+
+```js
+
+const { load } = require('secreta')
+
+module.exports = load({key: process.env.MY_ONLY_KEY, environment: process.env.NODE_ENV})
+
+```
+
+### Testing
+You can clone the repo and move the sandbox folder to a folder on the same level with secreta
+Run the following command in secreta folder
+```bash
+npm link
+```
+
+Run the following command in sandbox folder
+```bash
+npm link secreta
+```
+You can now play as you like in the sandbox!
 
 
 ## How can I support the developers?
@@ -95,28 +136,13 @@ secreta decrypt
 ## License
 [MIT](LICENSE.txt) license.
 
-<!-- ## More from Akveo
-- [Eva Icons][link:eva-icons] - 480+ beautiful Open Source icons -->
+
 
 ## From Developers
 Made with :heart: by [Tobbyas Techwares][link:tobbyas-techwares-homepage]. Follow us on [Twitter][link:drtobbyas-twitter] to get the latest news first!
 We're always happy to receive your feedback!
 
-<!-- [badge:license]: https://img.shields.io/npm/l/react-native-ui-kitten.svg -->
-<!-- [badge:github-actions]: https://github.com/akveo/react-native-ui-kitten/workflows/Build/badge.svg
-[badge:coveralls]: https://coveralls.io/repos/github/akveo/react-native-ui-kitten/badge.svg?branch=master -->
 
-<!-- [link:eva]: https://hubs.ly/H0n6Dd90 -->
-<!-- [link:github-actions]: https://github.com/akveo/react-native-ui-kitten/actions -->
-<!-- [link:coveralls]: https://coveralls.io/github/akveo/react-native-ui-kitten?branch=master -->
-<!-- [link:doc-homepage]: https://hubs.ly/H0n6CZJ0 -->
-<!-- [link:doc-where-start]: https://hubs.ly/H0n6Ddg0 -->
-<!-- [link:kitten-tricks]: https://github.com/akveo/kittenTricks -->
-<!-- [link:eva-icons]: https://github.com/akveo/eva-icons -->
 [link:tobbyas-techwares-homepage]: https://tobbyas.com
-<!-- [link:akveo-medium]: https://medium.com/akveo-engineering -->
 [link:drtobbyas-twitter]: https://twitter.com/drtobbyas
-<!-- [link:akveo-facebook]: https://www.facebook.com/ -->
-<!-- [link:ui-kitten-bundles]: https://hubs.ly/H0n6Ddn0 -->
-<!-- [link:ui-kitten-bundle-java]: https://hubs.ly/H0n6C-00 -->
-<!-- [link:ui-kitten-bundle-dotnet-core]: https://hubs.ly/H0n6C-10 -->
+
