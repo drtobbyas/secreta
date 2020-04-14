@@ -1,0 +1,17 @@
+{
+  "name": "secreta-sandbox",
+  "version": "1.0.0",
+  "description": "secreta sandbox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sandbox"
+  ],
+  "author": "Oluwatobi Adeshina",
+  "license": "MIT",
+  "dependencies": {
+    "secreta": "file:../secreta"
+  }
+}
