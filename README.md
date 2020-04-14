@@ -31,14 +31,14 @@ It eliminates the need to worry about secrets being committed to git repos. All 
 
 
 # Motivation
-Keeping organized and remembering app configs especially when you have loads of secrets to manage, database configs (host, username, and passwords), app ID, external API keys and variable enviroment configuration is really daunting. And more importantly being able to define enviroment variables in a single file and load at runtime any given enviroment configuration seems to be a luxury.
+Keeping organized and remembering app configs especially when you have loads of secrets keys, database configs (host, username, and passwords), app IDs, external API keys and variable enviroment configuration is really daunting. And more importantly, being able to define enviroment variables in a single file and load at runtime any given enviroment configuration seems to be a luxury.
 Also, exposing your whole system configs to third party, adhoc staff and one-time freelancers is not something you want for your organization.
 
 Having the ability to manage all your secrets, database configs, API keys and more with just `ONE KEY` is not bad (~ if not splendid ~). Also being able to optionally secure your secrets with industry-grade encryption when your feel you need more protection while working with third-parties is plus. Above all, have the ease of switching and testing all your enviroments (development, staging, production) variables from a single point.
 
 ## What makes  `secreta` different from other config manangement modules'
 ### secreta vs dotenv
-| features | dotenv                 | secreta                                                                                                          |
+| feature | dotenv                 | secreta                                                                                                          |
 | ---- | --------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | Dynamic Loading  |  Does not support dynamic environment variables loading.                    | Support dynamic environment variables loading                                                                                            |
 | DataTypes  | .env file only natively support string. Does not support boolean or number values without additionally overhead            | Full support for all DataTypes includes Array, boolean, number e.t.c. Support all DataTypes that can be stored with json                                                                                    |
@@ -68,8 +68,8 @@ secreta init
 ```
 
 Define your configs: 
-### Open `<project-root>/.secreta/secreta.json` and define your configs. 
-### set your key and environment in `<project-root>/.secreta/config.js' file. Boom! All done.
+> Open `<project-root>/.secreta/secreta.json` and define your configs. 
+set your key and environment in `<project-root>/.secreta/config.js' file. Boom! All done.
 
 Load config: 
 ### Config can be loaded either in encrypted or unencrypted state
@@ -82,7 +82,7 @@ console.log(config.MYSQL_PASSWORD)
 ```
 
 ### You can encrypt your config prior to pushing to git repo (gitHub, gitLab, Bitbucket, e.t.c)
-### Or even create pre-push hook https://www.npmjs.com/package/pre-push to enhance workflow
+> Or even create pre-push hook https://www.npmjs.com/package/pre-push to enhance workflow
 
 Encrypt configs: 
 This encrypts your secrets and configs with Industry-grade encryption algorithm
@@ -101,8 +101,8 @@ secreta decrypt
 ```
 
 Configuring environment: 
-### Config can be loaded based on environment (development, staging, production or any other you defined in secreta.json)
-### open `<project-root>/.secreta/config.js' file and make variable reference to `key` and `environment` properties.
+> open `<project-root>/.secreta/config.js' file and make variable reference to `key` and `environment` properties.
+Config can be loaded based on environment (development, staging, production or any other you defined in secreta.json)
 
 ```js
 
